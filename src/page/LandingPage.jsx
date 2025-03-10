@@ -30,7 +30,7 @@ const LandingPage = () => {
             </h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Join our community by contributing to the pool. Receive a unique
-              NFT that represents your contribution and tracks your involvement.
+              NFT that represents your contribution and tracks your involvement
             </p>
           </section>
 
