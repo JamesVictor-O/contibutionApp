@@ -1,5 +1,9 @@
 import { useState } from "react"
 import { useAccount } from "wagmi"
+import { useReadContract } from "wagmi"
+// import {ContractAbi} from "../abi.json"
+
+
 
 const LandingPage = () => {
   const { isConnected, address } = useAccount();
@@ -16,6 +20,26 @@ const LandingPage = () => {
   const [withdrawFunds, setWithdrawFunds]=useState(null)
   const [connectWallet, setConnectWallet]=useState(null)
   const [formatAddress, setFormatAddress]=useState(null)
+
+ 
+
+
+  // const { data: userPools } = useReadContract({
+  //   address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  //   abi: ContractAbi.abi,
+  //   functionName: "getUserPools",
+  //   args: [],
+  //   account: address,
+  // });
+
+
+
+
+
+
+
+
+
   return (
     <div>
       <div className=" bg-gradient-to-b from-gray-900 to-black text-white">

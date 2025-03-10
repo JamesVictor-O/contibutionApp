@@ -8,5 +8,6 @@ export default defineConfig({
       external: ['@rainbow-me/rainbowkit']
     }
   },
+  
   plugins: [react()],
 })
