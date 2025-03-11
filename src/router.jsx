@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements,Route } from "react-router-dom";
-import LandingPage from "./page/LandingPage";
-import Root from "./Root";
+import LandingPage from "./page/LandingPage.jsx";
+import Root from "./Root.jsx";
 
 const router=createBrowserRouter(
     createRoutesFromElements(
