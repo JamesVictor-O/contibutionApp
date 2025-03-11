@@ -7,16 +7,26 @@ import { useReadContract } from "wagmi"
 
 const LandingPage = () => {
   const { isConnected, address } = useAccount();
-  const [contributionAmount, setContributionAmount]=useState(0)
-  const [targetAmount, setTargetAmount]=useState(0)
-  const [poolStatus, setPoolStatus]=useState(false)
-  const [contractBalance, setContractBalance]=useState(0)
-  const [hasNFT, setHasNFT]=useState(false)
-  const [contribution, setContribution]=useState(null)
-  const [loading, setLoading]=useState(false)
-  const [isOwner, setIsOwner]=useState(false)
-  const [account, setAccount]=useState(null)
-  const [makeContribution, setMakeContribution]=useState(null)
+
+  const[party, setParty]=useState({
+    targetAmount: 0,
+    contributionAmount: 0,
+    poolStatus: false,
+    contractBalance: 0,
+  })
+  const[accountInfo, setAccountInfo]=useState({
+    hasNFT: false,
+    contribution: null,
+    loading: false,
+    isOwner: false,
+    account: null,
+    makeContribution: null,
+    withdrawFunds: null,
+  })
+ 
+  
+  
+  
   const [withdrawFunds, setWithdrawFunds]=useState(null)
   const [connectWallet, setConnectWallet]=useState(null)
   const [formatAddress, setFormatAddress]=useState(null)
