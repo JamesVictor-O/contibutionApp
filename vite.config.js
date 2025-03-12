@@ -9,16 +9,4 @@ export default defineConfig({
       external: ['@rainbow-me/rainbowkit']
     }
   },
-  server: {
-    headers: {
-      'Content-Type': 'text/javascript'
-    }
-  },
-  base: '/', 
-  plugins: [react()],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
 })

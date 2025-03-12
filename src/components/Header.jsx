@@ -1,7 +1,31 @@
 import React from 'react'
 import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useRef,useEffect,useState } from 'react';
 
 const Header = () => {
+ const{isConnected, address}=useAccount()
+ const location = useLocation();
+  const navigate = useNavigate();
+  const hasConnected = useRef(false);
+
+  useEffect(() => {
+    if (isConnected) {
+      if (!hasConnected.current) {
+        hasConnected.current = true;
+        if (location.pathname === "/") {
+          navigate("/homepage");
+        }
+      }
+    } else {
+      hasConnected.current = false; // Reset ref when user disconnects
+      if (location.pathname !== "/") {
+        navigate("/");
+      }
+    }
+  }, [isConnected, location.pathname, navigate]);
+  
   return (
     <div>
         <header className="flex justify-between items-center py-6 border-b border-gray-800 bg-gradient-to-b from-gray-900 to-black px-6">

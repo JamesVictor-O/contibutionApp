@@ -40,13 +40,6 @@
     },
     {
       "type": "function",
-      "name": "contributionAmount",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
       "name": "contributorsId",
       "inputs": [],
       "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
@@ -68,7 +61,18 @@
     {
       "type": "function",
       "name": "createParty",
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "_targetAmount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "_amountToContribute",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
       "outputs": [],
       "stateMutability": "nonpayable"
     },
@@ -79,6 +83,44 @@
         { "name": "tokenId", "type": "uint256", "internalType": "uint256" }
       ],
       "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getAllParties",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple[]",
+          "internalType": "struct PiggyVest.Party[]",
+          "components": [
+            { "name": "partyId", "type": "uint256", "internalType": "uint256" },
+            {
+              "name": "contributedAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "amountToContribute",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            {
+              "name": "targetAmount",
+              "type": "uint256",
+              "internalType": "uint256"
+            },
+            { "name": "poolStatus", "type": "bool", "internalType": "bool" },
+            { "name": "creator", "type": "address", "internalType": "address" },
+            {
+              "name": "memberCount",
+              "type": "uint256",
+              "internalType": "uint256"
+            }
+          ]
+        }
+      ],
       "stateMutability": "view"
     },
     {
@@ -129,6 +171,16 @@
     },
     {
       "type": "function",
+      "name": "memberTokens",
+      "inputs": [
+        { "name": "", "type": "address", "internalType": "address" },
+        { "name": "", "type": "uint256", "internalType": "uint256" }
+      ],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
       "name": "name",
       "inputs": [],
       "outputs": [{ "name": "", "type": "string", "internalType": "string" }],
@@ -162,8 +214,14 @@
       "name": "parties",
       "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
       "outputs": [
+        { "name": "partyId", "type": "uint256", "internalType": "uint256" },
         {
           "name": "contributedAmount",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "amountToContribute",
           "type": "uint256",
           "internalType": "uint256"
         },
@@ -173,7 +231,8 @@
           "internalType": "uint256"
         },
         { "name": "poolStatus", "type": "bool", "internalType": "bool" },
-        { "name": "creator", "type": "address", "internalType": "address" }
+        { "name": "creator", "type": "address", "internalType": "address" },
+        { "name": "memberCount", "type": "uint256", "internalType": "uint256" }
       ],
       "stateMutability": "view"
     },
@@ -235,19 +294,26 @@
     },
     {
       "type": "function",
-      "name": "targetAmount",
-      "inputs": [],
-      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
-      "stateMutability": "view"
-    },
-    {
-      "type": "function",
       "name": "togglePoolStatus",
       "inputs": [
         { "name": "_partyId", "type": "uint256", "internalType": "uint256" }
       ],
       "outputs": [],
       "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "tokenIdToLevels",
+      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "tokenToParty",
+      "inputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "outputs": [{ "name": "", "type": "uint256", "internalType": "uint256" }],
+      "stateMutability": "view"
     },
     {
       "type": "function",
@@ -509,4 +575,5 @@
         { "name": "account", "type": "address", "internalType": "address" }
       ]
     }
-  ] }
+  ]
+}
